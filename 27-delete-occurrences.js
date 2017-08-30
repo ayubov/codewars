@@ -1,3 +1,4 @@
+// task description
 /*
 Enough is enough!
 
@@ -14,4 +15,5 @@ Example
   deleteNth ([20,37,20,21],1) // return [20,37,21]
 */
 
-const deleteNth = (arr,x) => arr.reduce((acc,item) => acc.filter(e => e === item).length < x ? acc.concat(item) : acc  ,[]);
+// solution
+const deleteNth = (arr,x) => arr.reduce((acc,item) => acc.filter(e => e === item).length < x ? [...acc,item] : acc  ,[]);
