@@ -1,6 +1,5 @@
 // task description
-/*
-The Fibonacci numbers are the numbers in the following integer sequence (Fn):
+/* The Fibonacci numbers are the numbers in the following integer sequence (Fn):
 
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
 such as
@@ -26,16 +25,18 @@ productFib(714) # should return [21, 34, true],
 
 productFib(800) # should return [34, 55, false],
                 # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55
-Notes: Not useful here but we can tell how to choose the number n up to which to go: we can use the "golden ratio" phi which is (1 + sqrt(5))/2 knowing that F(n) is asymptotic to: phi^n / sqrt(5). That gives a possible upper bound to n.
-*/
-// solution
+Notes: Not useful here but we can tell how to choose the number n up to which to go:
+we can use the "golden ratio" phi which is (1 + sqrt(5))/2 knowing that F(n) is
+asymptotic to: phi^n / sqrt(5). That gives a possible upper bound to n. */
+
 const productFib = (prod) => {
-const fibArrayMaker = ((previousNum,num,acc) => num < prod ? fibArrayMaker(num,num+previousNum,[...acc, num]) : acc);
-const fib = fibArrayMaker(0,1,[0]);
-return fib.reduce((acc,item,index) => {
-if (acc.length > 0 || item*fib[index+1] < prod) {
-return acc;
-}
-return [item, fib[index+1], item*fib[index+1] === prod];
-},[]);
-}
+  const fibArrayMaker = (previousNum, num, acc) =>
+    (num < prod ? fibArrayMaker(num, num + previousNum, [...acc, num]) : acc);
+  const fib = fibArrayMaker(0, 1, [0]);
+  return fib.reduce((acc, item, index) => {
+    if (acc.length > 0 || item * fib[index + 1] < prod) {
+      return acc;
+    }
+    return [item, fib[index + 1], item * fib[index + 1] === prod];
+  }, []);
+};

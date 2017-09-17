@@ -14,27 +14,26 @@ list_squared(42, 250) --> [[42, 2500], [246, 84100]]
 
 // solution
 const listSquared = (m, n) => {
+  const divisorsSumCounter = (integer, actualDivisor, sumOfDivisors) => {
+    if (actualDivisor > integer / 2) {
+      return sumOfDivisors + (integer * integer);
+    }
+    if (integer % actualDivisor === 0) {
+      return divisorsSumCounter(integer, actualDivisor + 1, sumOfDivisors + (actualDivisor * actualDivisor));
+    }
+    return divisorsSumCounter(integer, actualDivisor + 1, sumOfDivisors);
+  };
 
-const divisorsSumCounter = (integer, actualDivisor, sumOfDivisors) => {
-if (actualDivisor > integer/2) {
-return sumOfDivisors + integer*integer;
-}
-if (integer % actualDivisor === 0) {
-return divisorsSumCounter(integer,actualDivisor+1,sumOfDivisors+actualDivisor*actualDivisor);
-}
-return divisorsSumCounter(integer,actualDivisor+1,sumOfDivisors);
-}
+  const resultMaker = (actualInteger, result) => {
+    const actualSum = divisorsSumCounter(actualInteger, 1, 0);
+    if (actualInteger > n) {
+      return result;
+    }
+    if (Math.sqrt(actualSum) % 1 === 0) {
+      return resultMaker(actualInteger + 1, result.concat([[actualInteger, actualSum]]));
+    }
+    return resultMaker(actualInteger + 1, result);
+  };
 
-const resultMaker = (actualInteger,result) => {
-const actualSum = divisorsSumCounter(actualInteger,1,0);
-if (actualInteger > n) {
-return result;
-}
-if (Math.sqrt(actualSum) % 1 === 0) {
-return resultMaker(actualInteger+1,result.concat([[actualInteger,actualSum]]));
-}
-return resultMaker(actualInteger+1,result);
-}
-
-return resultMaker(m,[]);
-}
+  return resultMaker(m, []);
+};
