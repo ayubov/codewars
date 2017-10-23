@@ -2,4 +2,4 @@
 
 My actual rank:
 
-![alt text](https://www.codewars.com/users/ayubov/badges/small)
+![alt text](https://www.codewars.com/users/ayubov/badges/large)
