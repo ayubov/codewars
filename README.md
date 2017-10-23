@@ -1,5 +1,4 @@
 ## My solutions to codewars.com challenges
 
-![alt text](https://www.codewars.com/users/ayubov/badges/large)
-
-![alt text](https://dev.codewars.com/images/logo-220ae435.png)
+My actual rank: 
+![alt text](https://www.codewars.com/users/ayubov/badges/small)
