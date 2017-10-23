@@ -1,6 +1,4 @@
-// task description
-/*
-Given the triangle of consecutive odd numbers:
+/* Given the triangle of consecutive odd numbers:
 
              1
           3     5
@@ -11,30 +9,25 @@ Given the triangle of consecutive odd numbers:
 Calculate the row sums of this triangle from the row index (starting at index 1) e.g.:
 
 rowSumOddNumbers(1); // 1
-rowSumOddNumbers(2); // 3 + 5 = 8
+rowSumOddNumbers(2); // 3 + 5 = 8 */
 
-*/
+// #1
+export const rowSumOddNumbers = (n) => {
+  if (n === 1) {
+    return 1;
+  }
+  let first = 1;
+  for (let j = 1; j < n; j += 1) {
+    first += 2 * j;
+  }
 
-// solution #1
-const rowSumOddNumbers = n => {
+  let result = 0;
+  for (let i = 0; i < n; i += 1) {
+    result += first + (2 * i);
+  }
 
-if (n === 1) {
-return 1;}
+  return result;
+};
 
-let first = 1;
-for (let j = 1; j < n; j++) {
-first+=2*j;
-}
-
-let result = 0;
-for (let i = 0; i < n; i++) {
-result+=first+2*i;
-}
-
-return result;
-}
-
-// solution #2
-function rowSumOddNumbers(n) {
-return n*n*n;
-}
+// #2
+export const rowSumOddNumbers2 = n => n * n * n;

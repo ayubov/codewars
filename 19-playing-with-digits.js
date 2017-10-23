@@ -9,7 +9,7 @@ Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...)
 If it is the case we will return k, if not return -1.
 Note: n, p will always be given as strictly positive integers. */
 
-const digPow = (a,b) => {
+const digPow = (a, b) => {
   const sum = String(a).split('').reduce((acc, n, index) => acc + (n ** (b + index)), 0);
   return sum % a ? -1 : sum / a;
 };
