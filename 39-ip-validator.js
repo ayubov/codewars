@@ -1,5 +1,7 @@
 /*
-Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. IPs should be considered valid if they consist of four octets, with values between 0..255 (included).
+Write an algorithm that will identify valid IPv4 addresses in dot-decimal format.
+IPs should be considered valid if they consist of four octets,
+with values between 0..255 (included).
 
 Input to the function is guaranteed to be a single string.
 
@@ -16,4 +18,5 @@ Examples
 123.045.067.089
 */
 
-const isValidIP = (str) => str.split('.').filter(v => v === v.trim() && v <= 255 && v >= 0).length === 4;
+const isValidIP = str =>
+  str.split('.').filter(v => v === Number(v).toString() && v <= 255 && v >= 0).length === 4;
