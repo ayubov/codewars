@@ -18,5 +18,5 @@ Examples
 123.045.067.089
 */
 
-const isValidIP = str =>
+export default str =>
   str.split('.').filter(v => v === Number(v).toString() && v <= 255 && v >= 0).length === 4;
