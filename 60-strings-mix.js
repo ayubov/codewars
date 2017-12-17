@@ -16,7 +16,7 @@
 // The task is to produce a string in which each lowercase letters of s1 or s2 appears as
 // many times as its maximum if this maximum is strictly greater than 1; these letters will
 // be prefixed by the number of the string where they appear with their maximum value
-// and :. If the maximum is in s1 as well as in s2 the prefix is =:.
+// and :. If the maximum is in s1 as well as in s2 the prefix is '=:'.
 //
 // In the result, substrings (a substring is for example 2:nnnnn or 1:hhh; it contains the prefix)
 // will be in decreasing order of their length and when they have the same length sorted in
